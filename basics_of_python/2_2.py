@@ -267,19 +267,37 @@ elif num3**2 > num2**2 + num1**2:
 
 
 # S
-x = int(input())
-y = int(input())
+x = float(input())
+y = float(input())
 
-if y < 0 and ():
+if y < 0 and (y >= (0.25 * x**2 + 0.5 * x - 8.75)):
     print("Опасность! Покиньте зону как можно скорее!")
-if y >= 0:
-    if (x <= -4 and y <= (5 / 3 * x + 35 / 3)):
-        print("Опасность! Покиньте зону как можно скорее!")
-    elif (y <= 5 and -4 <= x <= 0):
-        print("Опасность! Покиньте зону как можно скорее!")
-    elif (x >= 0 and (x**2 + y**2) <= 25):
-        print("Опасность! Покиньте зону как можно скорее!")
+elif y >= 0 and ((x <= -4 and y <= (5 / 3 * x + 35 / 3)) or (y <= 5 and -4 <= x <= 0)):
+    print("Опасность! Покиньте зону как можно скорее!")
+elif y >= 0 and (x >= 0 and (x**2 + y**2) <= 25):
+    print("Опасность! Покиньте зону как можно скорее!")
 elif (x**2 + y**2) >= 100:
     print("Вы вышли в море и рискуете быть съеденным акулой!")
 else:
     print("Зона безопасна. Продолжайте работу.")
+
+
+# T
+sentence2 = input()
+sentence1 = input()
+sentence3 = input()
+
+if sentence2 > sentence3:
+    sentence3, sentence2 = sentence2, sentence3
+if sentence1 > sentence2:
+    sentence1, sentence2 = sentence2, sentence1
+if sentence2 > sentence3:
+    sentence2, sentence3 = sentence3, sentence2
+
+
+if "зайка" in sentence1:
+    print(sentence1, len(sentence1))
+elif "зайка" in sentence2:
+    print(sentence2, len(sentence2))
+elif "зайка" in sentence3:
+    print(sentence3, len(sentence3))
