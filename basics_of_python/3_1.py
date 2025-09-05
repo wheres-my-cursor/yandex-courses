@@ -298,7 +298,7 @@ for i in lst:
         res = stek[-1]
         stek += [res]
     elif i == "@":
-        res = [stek[-1], stek[-2], stek[-3]]
+        res = [stek[-2], stek[-1], stek[-3]]
         stek.pop()
         stek.pop()
         stek.pop()
