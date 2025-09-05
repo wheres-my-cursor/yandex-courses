@@ -82,12 +82,13 @@ for i in range(n):
 # I
 while (sentence := input()) != "":
     index = sentence.find("#")
-    if index == -1:
-        print(sentence)
-    elif index == 0:
-        continue
-    else:
-        print(sentence[:index])
+    match (index):
+        case -1:
+            print(sentence)
+        case 0:
+            continue
+        case _:
+            print(sentence[:index])
 
 
 # J
@@ -235,23 +236,24 @@ lst = input().split()
 stek = []
 
 for i in lst:
-    if i.isdigit():
-        stek += [int(i)]
-    elif i == "+":
-        res = stek[-1] + stek[-2]
-        stek.pop()
-        stek.pop()
-        stek += [res]
-    elif i == "-":
-        res = stek[-2] - stek[-1]
-        stek.pop()
-        stek.pop()
-        stek += [res]
-    elif i == "*":
-        res = stek[-1] * stek[-2]
-        stek.pop()
-        stek.pop()
-        stek += [res]
+    match (i):
+        case str() if i.isdigit():
+            stek += [int(i)]
+        case "+":
+            res = stek[-1] + stek[-2]
+            stek.pop()
+            stek.pop()
+            stek += [res]
+        case "-":
+            res = stek[-2] - stek[-1]
+            stek.pop()
+            stek.pop()
+            stek += [res]
+        case "*":
+            res = stek[-1] * stek[-2]
+            stek.pop()
+            stek.pop()
+            stek += [res]
 
 print(stek[-1])
 
@@ -261,47 +263,48 @@ lst = input().split()
 stek = []
 
 for i in lst:
-    if i.isdigit():
-        stek += [int(i)]
-    elif i == "+":
-        res = stek[-1] + stek[-2]
-        stek.pop()
-        stek.pop()
-        stek += [res]
-    elif i == "-":
-        res = stek[-2] - stek[-1]
-        stek.pop()
-        stek.pop()
-        stek += [res]
-    elif i == "*":
-        res = stek[-1] * stek[-2]
-        stek.pop()
-        stek.pop()
-        stek += [res]
-    elif i == "/":
-        res = stek[-2] // stek[-1]
-        stek.pop()
-        stek.pop()
-        stek += [res]
-    elif i == "~":
-        res = -stek[-1]
-        stek.pop()
-        stek += [res]
-    elif i == "!":
-        res = stek[-1]
-        stek.pop()
-        res_f = 1
-        for i in range(2, res + 1):
-            res_f *= i 
-        stek += [res_f]
-    elif i == "#":
-        res = stek[-1]
-        stek += [res]
-    elif i == "@":
-        res = [stek[-2], stek[-1], stek[-3]]
-        stek.pop()
-        stek.pop()
-        stek.pop()
-        stek += res
+    match (i):
+        case str() if i.isdigit():
+            stek += [int(i)]
+        case "+":
+            res = stek[-1] + stek[-2]
+            stek.pop()
+            stek.pop()
+            stek += [res]
+        case "-":
+            res = stek[-2] - stek[-1]
+            stek.pop()
+            stek.pop()
+            stek += [res]
+        case "*":
+            res = stek[-1] * stek[-2]
+            stek.pop()
+            stek.pop()
+            stek += [res]
+        case "/":
+            res = stek[-2] // stek[-1]
+            stek.pop()
+            stek.pop()
+            stek += [res]
+        case "~":
+            res = -stek[-1]
+            stek.pop()
+            stek += [res]
+        case "!":
+            res = stek[-1]
+            stek.pop()
+            res_f = 1
+            for i in range(2, res + 1):
+                res_f *= i 
+            stek += [res_f]
+        case "#":
+            res = stek[-1]
+            stek += [res]
+        case "@":
+            res = [stek[-2], stek[-1], stek[-3]]
+            stek.pop()
+            stek.pop()
+            stek.pop()
+            stek += res
 
 print(stek[-1])

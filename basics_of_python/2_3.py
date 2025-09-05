@@ -97,14 +97,15 @@ print(res)
 x, y = 0, 0
 
 while (sentence := input()) != "СТОП":
-    if sentence == "СЕВЕР":
-        y += int(input())
-    if sentence == "ЮГ":
-        y -= int(input())
-    if sentence == "ЗАПАД":
-        x -= int(input())
-    if sentence == "ВОСТОК":
-        x += int(input())
+    match (sentence):
+        case "СЕВЕР":
+            y += int(input())
+        case "ЮГ":
+            y -= int(input())
+        case "ЗАПАД":
+            x -= int(input())
+        case "ВОСТОК":
+            x += int(input())
 
 print(y, x, sep='\n')
 

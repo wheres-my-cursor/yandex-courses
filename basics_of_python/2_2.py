@@ -3,10 +3,11 @@ print("Как Вас зовут?")
 print(f"Здравствуйте, {input()}!")
 print("Как дела?")
 mood = input()
-if mood == "хорошо":
-    print("Я за Вас рада!")
-elif mood == "плохо":
-    print("Всё наладится!")
+match mood:
+    case "хорошо":
+        print("Я за Вас рада!")
+    case "плохо":
+        print("Всё наладится!")
 
 
 # B
