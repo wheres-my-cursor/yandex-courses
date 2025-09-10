@@ -101,14 +101,38 @@ from itertools import product
 
 
 n = int(input())
-lst = [i for i in range(1, n + 1)]
 
-res = list(product(lst, lst))
+res = list(product(range(1, n + 1), repeat=2))
 
 for i, j in res:
-    print(i * j, end = ' ') 
+    print(i * j, end=' ') 
     if j == n:
         print()
 
 
 # J
+from itertools import product
+
+
+n = int(input())
+
+print("А Б В")
+for i, j in list(product(range(1, n + 1) repeat = 2)):
+    if n - i - j > 0:
+        print(i, j, n - i - j)
+
+
+# K
+from itertools import product
+
+
+n = int(input())
+m = int(input())
+
+res = product(range(n), range(1, m + 1))
+width = len(str(n * m))
+
+for i, j in res:
+    print(f"{i * m + j: >{width}}", end=' ')
+    if j % m == 0:
+        print()
