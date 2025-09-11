@@ -594,7 +594,13 @@ print(list(zip("ABCDE", [1, 2, 3], strict=True)))
 # Вывод:
 # ValueError: zip() argument 2 is shorter than argument 1
 ```
+# Потоковый ввод/вывод. Работа с текстовыми файлами. JSON.
 
+stdin - стандартный поток ввода. Это поток, в который попадают все строки, вводимые пользователем.
+
+```
+from sys import stdin
+```
 
 
 
