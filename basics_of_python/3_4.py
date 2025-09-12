@@ -136,3 +136,65 @@ for i, j in res:
     print(f"{i * m + j: >{width}}", end=' ')
     if j % m == 0:
         print()
+
+
+# L
+n = int(input())
+
+lst = []
+
+for i in range(n):
+    lst += input().split(", ")
+
+for i, word in enumerate(sorted(lst), 1):
+    print(f"{i}. {word}")
+
+
+# M
+from itertools import permutations 
+
+
+n = int(input())
+names = []
+
+for i in range(n):
+    names += [input()]
+
+res = sorted(permutations(names, n))
+
+for i in res:
+    print(", ".join(i))
+
+
+# N
+from itertools import permutations 
+
+
+n = int(input())
+names = []
+
+for i in range(n):
+    names += [input()]
+
+res = sorted(permutations(names, 3))
+
+for i in res:
+    print(", ".join(i))
+
+
+# O
+from itertools import permutations 
+
+
+n = int(input())
+
+lst = []
+
+for i in range(n):
+    lst += input().split(", ")
+
+res = sorted(permutations(lst, 3))
+
+for i in res:
+    print(" ".join(i))
+
