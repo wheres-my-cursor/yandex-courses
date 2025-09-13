@@ -198,3 +198,107 @@ res = sorted(permutations(lst, 3))
 for i in res:
     print(" ".join(i))
 
+
+# P
+from itertools import product, combinations
+
+
+nominal = ["10", "2", "3", "4", "5", "6", "7", "8", "9",
+           "валет", "дама", "король", "туз"]
+suit = ["бубен", "пик", "треф", "червей"]
+suit_cases = {"буби": "бубен",
+              "пики": "пик",
+              "трефы": "треф",
+              "черви": "червей"
+              } 
+
+main_suit = suit_cases[input()]
+wtht_nominal = input()
+nominal.remove(wtht_nominal)
+
+
+res = combinations(product(nominal, suit), 3)
+
+res = [i for i in res if main_suit in str(i)][:10]
+
+for ((x1, y1), (x2, y2), (x3, y3)) in res:
+    print(f"{x1} {y1}, {x2} {y2}, {x3} {y3}")
+
+
+# Q
+from itertools import product, combinations
+
+
+nominal = ["10", "2", "3", "4", "5", "6", "7", "8", "9",
+           "валет", "дама", "король", "туз"]
+suit = ["бубен", "пик", "треф", "червей"]
+suit_cases = {"буби": "бубен",
+              "пики": "пик",
+              "трефы": "треф",
+              "черви": "червей"
+              } 
+
+main_suit = suit_cases[input()]
+wtht_nominal = input()
+nominal.remove(wtht_nominal)
+
+
+comb = combinations(product(nominal, suit), 3)
+prev = input()
+res = ""
+flag = 1
+
+for i in comb:
+    if flag and main_suit in str(i):
+        maybe_prev = f"{i[0][0]} {i[0][1]}, {i[1][0]} {i[1][1]}, {i[2][0]} {i[2][1]}"
+        if maybe_prev == prev:
+            flag = 0
+    elif not flag and main_suit in str(i):
+        res = f"{i[0][0]} {i[0][1]}, {i[1][0]} {i[1][1]}, {i[2][0]} {i[2][1]}"
+        break
+
+print(res)
+
+
+# R
+from itertools import product
+
+
+string = input() + " "
+comb = product([0, 1], [0, 1], [0, 1])
+
+print("a b c f")
+for (x, y, z) in comb:
+    res = string.replace('a ', f"{x} ").replace('b', str(y)).replace('c', str(z))
+    print(x, y, z, int(eval(res)))
+
+
+# S
+from itertools import product
+
+
+string = input()
+variables = sorted(set(i for i in string if i.isupper()))
+n = len(variables)
+
+comb = product([0, 1], repeat=n)
+
+
+print(" ".join(variables), end=" F\n")
+for i in comb:
+    res = string
+    for ind, j in enumerate(i):
+        print(j, end=" ")
+        res = res.replace(variables[ind], str(j))
+    res = res.replace("~", "==")
+    print(res)
+
+    while "->" in res:
+        ind = res.index("->")
+        res = list(res)
+        res.insert(0, "not ")
+        res = "".join(res)
+        res = res.replace("->", "or", count=1)
+        print(res)
+
+    print(int(eval(res)))
